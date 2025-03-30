@@ -1,4 +1,4 @@
-package tanchak.kafka.test;
+package tanchak.kafka.producer;
 
 
 import lombok.extern.slf4j.Slf4j;
