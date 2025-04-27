@@ -1,4 +1,4 @@
 rootProject.name = 'tanchak-kafka'
-include 'receiver'
+include 'consumer'
 include 'producer'
 

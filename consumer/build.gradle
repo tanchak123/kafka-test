@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group = 'tanchak.kafka.receiver'
+group = 'tanchak.kafka.consumer'
 version = '1.0-SNAPSHOT'
 
 repositories {

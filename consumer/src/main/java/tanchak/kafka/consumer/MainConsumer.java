@@ -1,4 +1,4 @@
-package tanchak.kafka.producer;
+package tanchak.kafka.consumer;
 
 
 import lombok.extern.slf4j.Slf4j;
@@ -8,10 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @Slf4j
-public class MainReceiver implements CommandLineRunner {
+public class MainConsumer implements CommandLineRunner {
 
     public static void main(String[] args) {
-        SpringApplication.run(MainReceiver.class, args);
+        SpringApplication.run(MainConsumer.class, args);
     }
 
     @Override

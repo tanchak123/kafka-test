@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    org.springframework.boot: INFO
+    org.springframework.kafka: INFO
+    org.apache.kafka: INFO
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#zookeeper:
+#  connect: localhost:2181
+#controller:
+#  quorum:
+#    voters=1@localhost:9093 - for kraft

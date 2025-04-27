@@ -8,9 +8,9 @@
     </appender>
 
     <appender name="GLOBAL" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>producer-logs/global/global-current.log</file>
+        <file>logs/producer-logs/global/global-current.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>producer-logs/global/log-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+            <fileNamePattern>logs/producer-logs/global/log-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
             <maxHistory>24</maxHistory>
         </rollingPolicy>
         <encoder>
@@ -19,9 +19,9 @@
     </appender>
 
     <appender name="DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>producer-logs/debug/debug-current.log</file>
+        <file>logs/producer-logs/debug/debug-current.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>producer-logs/debug/log-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+            <fileNamePattern>logs/producer-logs/debug/log-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
             <maxHistory>24</maxHistory>
         </rollingPolicy>
         <encoder>
@@ -35,9 +35,9 @@
     </appender>
 
     <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>producer-logs/error/error-current.log</file>
+        <file>logs/producer-logs/error/error-current.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>producer-logs/error/log-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+            <fileNamePattern>logs/producer-logs/error/log-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
             <maxHistory>24</maxHistory>
         </rollingPolicy>
         <encoder>
