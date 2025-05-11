@@ -4,31 +4,17 @@ services:
   kafka:
     image: apache/kafka:4.0.0
     ports:
-      - "9091:9091"  # Порт для подключения
+      - "9092:9092"
     environment:
-      KAFKA_LISTENER_SECURITY_PROTOCOL: PLAINTEXT
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT
-      KAFKA_LISTENER_NAME: INSIDE
-      KAFKA_LISTENER_PORT: 9091
-      KAFKA_LISTENER_HOSTNAME: localhost
-      KAFKA_LISTENERS: INSIDE://localhost:9091
-      KAFKA_ADVERTISED_LISTENERS: INSIDE://localhost:9091
-      KAFKA_LISTENER_NAMES: INSIDE
-      KAFKA_LISTENER_PORTS: 9091
-      KAFKA_LOG_DIRS: /var/lib/kafka/data
-      KAFKA_LISTENER_INTERFACE: INSIDE
-      KAFKA_CONFLUENT_SUPPORT_METRICS_ENABLE: "false"
-      KAFKA_KRAFT_MODE: "true"
-      KAFKA_LOG_RETENTION_HOURS: 168
-      KAFKA_LOG_SEGMENT_BYTES: 1073741824
-      KAFKA_CONFLUENT_SUPPORT: "false"
+      KAFKA_NODE_ID: 1
       KAFKA_PROCESS_ROLES: broker,controller
-      KAFKA_METADATA_MODE: KRAFT
-      KAFKA_BROKER_ID: 1
-      KAFKA_CONTROLLER_QUORUM_BOOTSTRAP_SERVERS: kafka:9091
-      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9091
-      KAFKA_CONTROLLER_LISTENER_NAMES: INSIDE
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_LISTENERS: BROKER://kafka:9092,CONTROLLER://kafka:9093
+      KAFKA_ADVERTISED_LISTENERS: BROKER://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: BROKER:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: BROKER
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CLUSTER_ID: FkRaftTestCluster123456
     volumes:
-      - /tmp/broker-metadata-logs  # Логи метаданных брокера
-      - /tmp/kafka-logs  # Логи Kafka
-    restart: always
+      - /tmp/kafka-logs:/tmp/kraft-combined-logs
+    restart: on-failure
